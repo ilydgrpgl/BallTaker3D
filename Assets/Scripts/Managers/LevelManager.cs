@@ -20,7 +20,7 @@ namespace Managers
         #region Private Variables
 
         private OnLevelLoaderCommand _levelLoaderCommand;
-        private OnLevelDestroyerCommand _levelDestroyerCommand; //bu iki commmand seviyelerin oluşturulup yok edilmesini sağlayacak.Bureferenslamaktır.
+        private OnLevelDestroyerCommand _levelDestroyerCommand; 
         private short _currentLevel;
         private LevelData _levelData;
 
