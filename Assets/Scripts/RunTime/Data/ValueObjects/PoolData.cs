@@ -1,6 +1,6 @@
 using System;
 
-namespace Data.ValueObjects
+namespace RunTime.Data.ValueObjects
 {
     [Serializable]
     public struct PoolData

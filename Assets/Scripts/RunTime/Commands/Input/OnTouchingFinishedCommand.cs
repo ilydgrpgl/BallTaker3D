@@ -1,6 +1,6 @@
 using Signals;
 
-namespace Commands
+namespace RunTime.Commands.Input
 {
     public class OnTouchingFinishedCommand
     {

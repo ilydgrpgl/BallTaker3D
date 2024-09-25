@@ -1,8 +1,7 @@
 using System;
-using System.Numerics;
 using Unity.Mathematics;
 
-namespace Data.ValueObjects
+namespace RunTime.Data.ValueObjects
 {
     //
     [Serializable]

@@ -1,16 +1,13 @@
 using System.Collections.Generic;
-using Commands;
-using Commands.Input;
-using Data.UnıtyObjects;
-using Data.ValueObjects;
-using Keys;
+using RunTime.Commands.Input;
+using RunTime.Data.UnıtyObjects;
+using RunTime.Data.ValueObjects;
 using Signals;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
-namespace Managers
+namespace RunTime.Managers
 {
     public class InputManager : MonoBehaviour
     {

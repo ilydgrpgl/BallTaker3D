@@ -1,7 +1,6 @@
 using Signals;
-using UnityEngine;
 
-namespace Commands
+namespace RunTime.Commands.Input
 {
     public class OnTouchingStartedCommand
     {

@@ -1,10 +1,10 @@
-using Data.ValueObjects;
-using Keys;
+using RunTime.Data.ValueObjects;
+using RunTime.Keys;
 using Signals;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Commands.Input
+namespace RunTime.Commands.Input
 {
     public class OnTouchingContinuesCommand
     {
