@@ -15,7 +15,7 @@ namespace RunTime.Handlers
 
         [SerializeField] private UIEventSubscriptionTypes type;
         [SerializeField] private Button button;
-        [SerializeField] private UIManager _manager;
+         private UIManager _manager;
 
         #endregion
 
