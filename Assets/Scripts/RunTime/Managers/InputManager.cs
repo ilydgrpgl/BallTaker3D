@@ -67,12 +67,12 @@ namespace RunTime.Managers
 
         private void OnEnableInput()
         {
-            _isAvailableForTouch = false;
+            _isAvailableForTouch = true;
         }
 
         private void OnDisableInput()
         {
-            _isAvailableForTouch = true;
+            _isAvailableForTouch = false;
         }
 
         private void OnReset()
@@ -93,12 +93,12 @@ namespace RunTime.Managers
             if (!_isAvailableForTouch) return;
             if (Input.GetMouseButtonUp(0) && !IsPointerOverUIElement())
             {
-                _startedCommand.Execute();
+                _finishedCommand.Execute();
             }
 
             if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement())
             {
-                _finishedCommand.Execute();
+                _startedCommand.Execute();
                 if (!_isFirstTimeTouchTaken)
                 {
                     _isFirstTimeTouchTaken = true;

@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="85813af3-007a-4839-bd7d-ec430cb3f5a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BallTaker3D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BallTaker3D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +98,7 @@
       <workItem from="1728741024889" duration="3298000" />
       <workItem from="1729353737020" duration="5762000" />
       <workItem from="1729616546993" duration="3000" />
+      <workItem from="1730822207398" duration="629000" />
     </task>
     <servers />
   </component>
