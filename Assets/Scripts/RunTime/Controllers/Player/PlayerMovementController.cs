@@ -17,9 +17,9 @@ namespace RunTime.Controllers.Player
 
         #region Private Variables
 
-         private PlayerMovementData _data;
-         private bool _isReadyToMove, _isReadyToPlay;
-         private float _xValue;
+        private PlayerMovementData _data;
+        private bool _isReadyToMove, _isReadyToPlay;
+        private float _xValue;
 
         private float2 _clampValues;
 

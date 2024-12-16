@@ -37,9 +37,10 @@ namespace RunTime.Managers
 
         private void Init()
         {
-            _startedCommand = new OnTouchingStartedCommand(true);
-            _finishedCommand = new OnTouchingFinishedCommand(false);
-            _continuesCommand = new OnTouchingContinuesCommand(_isTouching, _data, _mousePosition, _currentVelocity, _moveVector);
+            _startedCommand = new OnTouchingStartedCommand(false);
+            _finishedCommand = new OnTouchingFinishedCommand(true);
+            _mousePosition = Input.mousePosition;
+             _continuesCommand = new OnTouchingContinuesCommand(true, _data, _mousePosition, _currentVelocity, _moveVector);
         }
 
         private InputData GetInputData()
@@ -59,9 +60,10 @@ namespace RunTime.Managers
 
         private void SubscribeEvents()
         {
-            CoreGameSignals.Instance.onReset += OnReset;
             InputSignals.Instance.onEnableInput += OnEnableInput;
+
             InputSignals.Instance.onDisableInput += OnDisableInput;
+            CoreGameSignals.Instance.onReset += OnReset;
         }
 
 
@@ -83,21 +85,26 @@ namespace RunTime.Managers
 
         private void UnSubscribeEvents()
         {
-            CoreGameSignals.Instance.onReset -= OnReset;
             InputSignals.Instance.onEnableInput -= OnEnableInput;
             InputSignals.Instance.onDisableInput -= OnDisableInput;
+            CoreGameSignals.Instance.onReset -= OnReset;
         }
 
         private void Update()
         {
             if (!_isAvailableForTouch) return;
-            if (Input.GetMouseButtonUp(0) && !IsPointerOverUIElement())
+
+
+            if (Input.GetMouseButtonUp(0))
             {
+
                 _finishedCommand.Execute();
             }
 
-            if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement())
+            if (Input.GetMouseButtonDown(0))
             {
+               
+
                 _startedCommand.Execute();
                 if (!_isFirstTimeTouchTaken)
                 {
@@ -109,22 +116,16 @@ namespace RunTime.Managers
             }
 
 
-            if (Input.GetMouseButton(0) && !IsPointerOverUIElement())
+            if (Input.GetMouseButton(0))
             {
-                Vector2 mouseDeltaPos = (Vector2)Input.mousePosition - _mousePosition.Value;
-                _continuesCommand.Execute(mouseDeltaPos);
+                _mousePosition = Input.mousePosition;
+
+
+                if (_mousePosition.HasValue)
+                {
+                    _continuesCommand.Execute();
+                }
             }
-        }
-
-        private bool IsPointerOverUIElement()
-        {
-            var eventData = new PointerEventData(EventSystem.current);
-
-            eventData.position = Input.mousePosition;
-
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(eventData, results);
-            return results.Count > 0;
         }
     }
 }

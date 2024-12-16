@@ -1,4 +1,5 @@
 using DG.Tweening;
+using RunTime.Controllers.Pool;
 using RunTime.Managers;
 using Signals;
 using UnityEngine;
@@ -57,12 +58,7 @@ namespace RunTime.Controllers.Player
             {
                 CoreGameSignals.Instance.onFinishAreaEntered?.Invoke();
                 InputSignals.Instance.onDisableInput?.Invoke();
-                return;
-            }
-
-            if (other.CompareTag(_miniGame))
-            {
-                //Write the MiniGame Mechanics
+                CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
             }
         }
 

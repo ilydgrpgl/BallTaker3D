@@ -24,12 +24,17 @@ namespace RunTime.Commands.Input
             _currentVelocity = currentVelocity;
         }
 
-        internal void Execute(Vector2 mouseDeltaPos)
+        internal void Execute()
         {
             if (_isTouching)
+
             {
+                Vector2 currentMousePosition = UnityEngine.Input.mousePosition;
+                ;
                 if (_mousePosition != null)
                 {
+                    Vector2 mouseDeltaPos = currentMousePosition - _mousePosition.Value;
+
                     if (mouseDeltaPos.x > _data.HorizontalInputSpeed)
                     {
                         _moveVector.x = _data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
@@ -37,19 +42,22 @@ namespace RunTime.Commands.Input
                     else if (mouseDeltaPos.x < _data.HorizontalInputSpeed)
 
                     {
-                        _moveVector.x = -_data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
+                        _moveVector.x = -_data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
                     }
                     else
                     {
                         _moveVector.x = Mathf.SmoothDamp(-_moveVector.x, 0f, ref _currentVelocity, _data.ClampSpeed);
                     }
 
-                    _mousePosition = UnityEngine.Input.mousePosition;
+                    _moveVector.x = mouseDeltaPos.x;
+
+
                     InputSignals.Instance.onInputDragged?.Invoke(new HorizontalInputParams()
                     {
                         HorizantalValue = _moveVector.x,
                         ClampValues = _data.ClampValues
                     });
+                    _mousePosition = currentMousePosition;
                 }
             }
         }

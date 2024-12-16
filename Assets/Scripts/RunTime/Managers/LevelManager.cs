@@ -21,7 +21,7 @@ namespace RunTime.Managers
         #region Private Variables
 
         private OnLevelLoaderCommand _levelLoaderCommand;
-        private OnLevelDestroyerCommand _levelDestroyerCommand; 
+        private OnLevelDestroyerCommand _levelDestroyerCommand;
         private short _currentLevel;
         private LevelData _levelData;
 
@@ -83,7 +83,7 @@ namespace RunTime.Managers
 
         private byte OnGetLevelValue()
         {
-            return (byte)_currentLevel;
+            return (byte)((byte)_currentLevel % totalLevelCount);
         }
 
         private void UnSubscribeEvents()
@@ -102,8 +102,7 @@ namespace RunTime.Managers
         {
             //Çok fazla level oynanabilir modunu almalı.
             CoreGameSignals.Instance.onLevelInitialize?.Invoke((byte)(_currentLevel % totalLevelCount));
-            CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Start,1);
-            
+            CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Start, 1);
         }
     }
 }

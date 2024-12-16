@@ -1,5 +1,6 @@
 using System;
 using RunTime.Enums;
+using RunTime.Signals;
 using Signals;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace RunTime.Managers
             CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
             CoreGameSignals.Instance.onReset += OnReset;
+            CoreGameSignals.Instance.onStageAreaSuccessful += OnStageAreaSuccessful;
         }
 
         private void OnLevelFailed()
@@ -42,12 +44,18 @@ namespace RunTime.Managers
             CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Start, 1);
         }
 
+        private void OnStageAreaSuccessful(byte stageValue)
+        {
+            UISignals.Instance.onSetStageColor?.Invoke(stageValue);
+        }
+
         private void UnSubscribeEvents()
         {
             CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitialize;
             CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
             CoreGameSignals.Instance.onReset -= OnReset;
+            CoreGameSignals.Instance.onStageAreaSuccessful -= OnStageAreaSuccessful;
         }
 
         private void OnDisable()
@@ -60,6 +68,7 @@ namespace RunTime.Managers
             UISignals.Instance.onPlay?.Invoke();
             CoreUISignals.Instance.onClosePanel?.Invoke(1);
             InputSignals.Instance.onEnableInput?.Invoke();
+            CameraSignals.Instance.onSetCameraTarget?.Invoke();
         }
 
         public void NextLevel()

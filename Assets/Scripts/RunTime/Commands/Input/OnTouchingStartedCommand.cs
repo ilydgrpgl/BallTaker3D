@@ -1,4 +1,5 @@
 using Signals;
+using UnityEngine;
 
 namespace RunTime.Commands.Input
 {
@@ -13,8 +14,11 @@ namespace RunTime.Commands.Input
 
         internal void Execute()
         {
-            if (_isTouching)
+            if (!_isTouching)
+            {
+                _isTouching = true;
                 InputSignals.Instance.onInputTaken?.Invoke();
+            }
         }
     }
 }

@@ -8,10 +8,11 @@ using UnityEngine;
 
 namespace RunTime.Managers
 {
-    public class PlayerManager: MonoBehaviour
-    {
-        #region Self Variables
+    public class PlayerManager : MonoBehaviour
+ {
+    #region Self Variables
 
+   
         #region Public Variables
 
         public byte StageValue;
@@ -23,8 +24,8 @@ namespace RunTime.Managers
         #region Serialized Variables
 
         [SerializeField] private PlayerMovementController movementController;
-        [SerializeField] private PlayerMeshController meshController;
         [SerializeField] private PlayerPhysicsController physicsController;
+        
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace RunTime.Managers
         #endregion
 
         #endregion
+
         private void Awake()
         {
             _data = GetPlayerData();
@@ -50,7 +52,7 @@ namespace RunTime.Managers
         private void SendDataToControllers()
         {
             movementController.SetData(_data.MovementData);
-            meshController.SetData(_data.MeshData);
+            
         }
 
         private void Init()
@@ -86,9 +88,6 @@ namespace RunTime.Managers
         {
             StageValue = ++value;
             movementController.IsReadyToPlay(true);
-            meshController.ScaleUpPlayer();
-            meshController.PlayConfetiParticle();
-            meshController.ShowUpText();
         }
 
         private void OnFinishAreaEntered()
@@ -103,7 +102,6 @@ namespace RunTime.Managers
             StageValue = 0;
             movementController.OnReset();
             physicsController.OnReset();
-            meshController.OnReset();
         }
 
         private void UnSubscribeEvents()

@@ -286,7 +286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   button: {fileID: 7997760166103432946}
-  _manager: {fileID: 0}
 --- !u!1 &2961453493557922669
 GameObject:
   m_ObjectHideFlags: 0

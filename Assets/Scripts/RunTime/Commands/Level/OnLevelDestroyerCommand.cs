@@ -6,7 +6,7 @@ namespace RunTime.Commands.Level
     {
         private Transform _levelHolder;
 
-        internal OnLevelDestroyerCommand(Transform levelHolder)
+        internal   OnLevelDestroyerCommand(Transform levelHolder)
         {
             _levelHolder = levelHolder;
         }

@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -568,8 +568,8 @@ MonoBehaviour:
   - {fileID: 4412565856682179372}
   - {fileID: 6337292146738326516}
   levelTexts:
-  - {fileID: 842516205694295541}
   - {fileID: 4512474776782274555}
+  - {fileID: 842516205694295541}
 --- !u!1 &7358431737695345204
 GameObject:
   m_ObjectHideFlags: 0

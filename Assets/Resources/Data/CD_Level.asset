@@ -17,3 +17,15 @@ MonoBehaviour:
     - ReguiredObjectCount: 10
     - ReguiredObjectCount: 20
     - ReguiredObjectCount: 30
+  - Pools:
+    - ReguiredObjectCount: 12
+    - ReguiredObjectCount: 22
+    - ReguiredObjectCount: 29
+  - Pools:
+    - ReguiredObjectCount: 15
+    - ReguiredObjectCount: 25
+    - ReguiredObjectCount: 30
+  - Pools:
+    - ReguiredObjectCount: 18
+    - ReguiredObjectCount: 28
+    - ReguiredObjectCount: 40

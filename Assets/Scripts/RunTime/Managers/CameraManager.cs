@@ -33,7 +33,7 @@ namespace RunTime.Managers
 
         private void Init()
         {
-            throw new NotImplementedException();
+            _firstPosition = transform.position;
         }
 
         private void OnEnable()
@@ -55,8 +55,8 @@ namespace RunTime.Managers
         private void OnSetCameraTarget()
         {
             //The actor will come with levels that will not be on stage
-            //var player = FindObjectOfType<PlayerManger>().transform;
-            //virtualCamera.Follow = player;
+            var player = FindObjectOfType<PlayerManager>().transform;
+            virtualCamera.Follow = player;
         }
 
         private void OnDisable()
@@ -67,6 +67,7 @@ namespace RunTime.Managers
         private void UnSubscribeEvents()
         {
             CameraSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
+            CoreGameSignals.Instance.onReset -= OnReset;
         }
     }
 }
